@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout na pełny ekran</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Ustawienie pełnego ekranu dla strony */
+        html, body {
+            width: 100%;
+            height: 100%;
+            background-color: #0f1115;
+            color: #ffffff;
+            overflow: hidden; /* Zapobiega pojawianiu się pasków przewijania, jeśli nie są potrzebne */
+        }
+
+        /* Główny kontener na pełny ekran */
+        .main-wrapper {
+            display: flex;
+            align-items: stretch;
+            width: 100vw;
+            height: 100vh;
+            background: #161920;
+            padding: 24px;
+            gap: 24px;
+        }
+
+        /* Sekcja logo po lewej */
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 12px;
+            min-width: 220px; /* Stała lub minimalna szerokość dla sekcji logo */
+        }
+
+        .logo-section img {
+            width: 220px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Pionowa kreska oddzielająca na pełną wysokość */
+        .divider {
+            width: 2px;
+            background-color: #2a2e39;
+            border-radius: 2px;
+        }
+
+        /* Duży container z gridem wypełniający resztę miejsca */
+        .grid-container {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            grid-auto-rows: 110px; /* Stała wysokość wierszy siatki */
+            gap: 16px;
+            align-content: start;
+            overflow-y: auto; /* Dodaje przewijanie wewnątrz grida, gdy kafelków jest za dużo na ekran */
+            padding-right: 8px;
+        }
+
+        /* Małe prostokąty (kafelki) */
+        .grid-item {
+            background-color: #1e222b;
+            border: 1px solid #2d3342;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #4f80ff;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-2px);
+            border-color: #4f80ff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <div class="logo-section">
+            <img src="https://github.com/poken12/rayban-cdn/blob/main/burgershot/burgershot.png?raw=true" alt="Logo">
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid-container">
+            <div class="grid-item">#200</div>
+            <div class="grid-item">#120</div>
+            <div class="grid-item">#150</div>
+            <div class="grid-item">#220</div>
+            <div class="grid-item">#90</div>
+            <div class="grid-item">#310</div>
+            <div class="grid-item">#175</div>
+            <div class="grid-item">#85</div>
+        </div>
+    </div>
+
+</body>
+</html>
