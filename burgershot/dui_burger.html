@@ -44,9 +44,17 @@
         .logo-section img {
             width: 220px;
             height: auto;
+            animation: pulse 3s infinite;
             object-fit: contain;
         }
-
+        @keyframes pulse {
+            0, 100% {
+                transform: scale(1.0)
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
         /* Pionowa kreska oddzielająca na pełną wysokość */
         .divider {
             width: 2px;
